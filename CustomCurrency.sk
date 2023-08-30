@@ -1,0 +1,12 @@
+on join:
+    if {balance::%player's uuid%} is not set:
+        set {balance::%player's uuid%} to 0
+
+on block break:
+    if event-block is dirt:
+        add 1 to {balance::%player's uuid%}
+
+command /balance:
+    aliases: bal
+    trigger:
+        send "&dBalance: %{balance::%player's uuid%}%"
